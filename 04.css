@@ -1,0 +1,168 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1a1a1a; /* Dark gray background */
+  color: #ffffff; /* White text */
+  text-align: center;
+}
+
+#player-names {
+  margin: 10px;
+  font-size: 20px;
+animation: colorChange 4s linear infinite;
+border: 10px double transparent;
+}
+
+@keyframes colorChange {
+  0% {
+    border-color: red; /* Initial color */
+  }
+  50% {
+    border-color: blue; /* Color change after 2 seconds */
+  }
+  100% {
+    border-color: yellow; /* Back to the initial color after 2 seconds */
+  }
+}
+
+h1 {
+    text-align: center;
+    border: 10px double #fff;
+    padding: 10px;
+    margin: 5px;
+    animation: textShrink 8s linear infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes textShrink {
+    0% {
+        color: white;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+        font-size: 36px; /* Initial font size */
+    }
+    25% {
+        color: pink;
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.9);
+        font-size: 28px; /* Smaller font size */
+    }
+    50% {
+        color: yellow;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.9);
+        font-size: 36px; /* Back to the initial font size */
+    }
+    75% {
+        color: royalblue;
+        text-shadow: 0 0 10px rgba(0, 0, 255, 0.9);
+        font-size: 28px; /* Smaller font size */
+    }
+    100% {
+        color: white;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+        font-size: 36px; /* Back to the initial font size */
+    }
+}
+
+
+#game-board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 420px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  background: #f0f0f0; /* Light gray cell background */
+  border: 2px solid #666;
+  display: inline-block;
+  margin: 2px;
+  border-radius: 10px; /* Rounded corners for cells */
+  position: relative;
+}
+
+.red {
+  background: #ff5733; /* Red for player 1 */
+  border-radius: 10px; /* Rounded corners for colored cells */
+}
+
+.yellow {
+  background: #f6e257; /* Yellow for player 2 */
+  border-radius: 10px; /* Rounded corners for colored cells */
+}
+
+.cell::before {
+  content: "X"; /* Add a label "X" to identify cells */
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.red::before {
+  content: "P1"; /* Add "P1" to identify red cells */
+}
+
+.yellow::before {
+  content: "P2"; /* Add "P2" to identify yellow cells */
+}
+
+.matched-cell {
+  animation: highlight 1s alternate infinite; /* Add an animation to matched cells */
+}
+
+@keyframes highlight {
+  0% {
+    background-color: #f0f0f0; /* Original cell background color */
+  }
+  100% {
+    background-color: #ff5733; /* Highlighted color (red) */
+  }
+}
+
+#game-over {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-over p {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#new-game-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background: #007BFF; /* Blue button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#new-game-button:hover {
+  background: #0056b3; /* Darker blue on hover */
+}
+
+#reset-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background: #ff5733; /* Red button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#reset-button:hover {
+  background: #d83c0c; /* Darker red on hover */
+}
